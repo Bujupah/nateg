@@ -9,6 +9,12 @@
 
 ```
 npm init
+npm install body-parse express nodemon
+```
+
+IF you pull this project just run this command
+```
+npm i
 ```
 
 ### Dependencies
