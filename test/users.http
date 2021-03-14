@@ -1,6 +1,5 @@
 PUT http://localhost:3000/users/604e72da78c4ad4fd08dece8
 Content-Type: application/json
-
 {
   "enabled": true
 }
