@@ -1,0 +1,29 @@
+PUT http://localhost:3000/users/604e72da78c4ad4fd08dece8
+Content-Type: application/json
+
+{
+  "enabled": true
+}
+
+###
+
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "first_name": "Hassen",
+  "last_name": "Chtara",
+  "email": "hassen.chtara@supcom.tn",
+  "password": "123456",
+  "phone": "21345678"
+}
+
+###
+
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "hassen.chtara@supcom.tn",
+  "password": "123456"
+}
