@@ -2,9 +2,10 @@
 
 
 ### Requirements
-  - Nodejs
-  - VScode (Any IDE)
-
+  - [Nodejs](https://nodejs.org/en/download/)
+  - [VScode](https://code.visualstudio.com/)
+  - [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+  - [JSON-Formatter](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?utm_source=chrome-ntp-icon)
 ### Create nodejs project
 
 ```
