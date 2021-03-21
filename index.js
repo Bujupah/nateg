@@ -19,6 +19,10 @@ app.use((err, req, res, next) => {
   res.status(err.status || 403).json({message: err.message})
 })
 
+app.get('/status', (req, res)=> {
+  res.json('I wish I become a platform!').status(200)
+})
+
 app.listen(process.env.PORT, () => {
   console.log(`Listenting on ${process.env.PORT}`);
 });
