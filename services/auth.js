@@ -1,6 +1,7 @@
 const createError = require("http-errors");
 const bcrypt = require("bcrypt");
 
+var firebase = require('firebase');
 
 const monk = require("monk");
 const db = monk(process.env.DB_URL);
@@ -8,6 +9,35 @@ const users = db.get("users");
 
 const { generateJWT } = require('../utils/jwt_auth');
 const { sendWelcomeMail } = require("./mailer");
+
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyDz9FcRHvusAPQkIBM1GPxvXd9TrwvrMQ0",
+  authDomain: "nateg-8de84.firebaseapp.com",
+  projectId: "nateg-8de84",
+  storageBucket: "nateg-8de84.appspot.com",
+  messagingSenderId: "779280206901",
+  appId: "1:779280206901:web:e7760f2095f91bb355f57c"
+};
+// Initialize Firebase
+var fireapp = firebase.initializeApp(firebaseConfig);
+
+const registerWithGoogle = async (email, password) => {
+  fireapp.auth().createUserWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Signed in 
+    var user = userCredential.user;
+    console.log(user)
+    // ...
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorCode, errorMessage)
+    // ..
+  });
+
+}
 
 const login = async (email, password) => {
   if (!email || !password) {
@@ -59,4 +89,4 @@ const register = async (newuser) => {
   return jwt
 };
 
-module.exports = { login, register };
+module.exports = { login, register, registerWithGoogle };

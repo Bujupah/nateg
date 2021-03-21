@@ -13,7 +13,13 @@ const register = asyncHandler(async (req, res, next) => {
   res.status(200).json({token});
 });
 
+const registerWithGoogle = asyncHandler(async (req, res, next) => {
+  await service.registerWithGoogle(req.body.username, req.body.password);
+  res.status(200).json({});
+});
+
 module.exports = {
   login,
   register,
+  registerWithGoogle,
 };

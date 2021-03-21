@@ -5,6 +5,7 @@ const router = express.Router()
 
 router.post('/login', controller.login)
 router.post('/register', controller.register)
+router.post('/google-auth', controller.registerWithGoogle)
 // router.post('/reset-password', controller.reset_password)
 
 module.exports = router
