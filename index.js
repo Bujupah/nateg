@@ -19,6 +19,6 @@ app.use((err, req, res, next) => {
   res.status(err.status || 403).json({message: err.message})
 })
 
-app.listen(3000, () => {
-  console.log("Listenting on 3000");
+app.listen(process.env.PORT, () => {
+  console.log(`Listenting on ${process.env.PORT}`);
 });
