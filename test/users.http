@@ -10,9 +10,9 @@ POST http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-  "first_name": "Hassen",
-  "last_name": "Chtara",
-  "email": "hassen.chtara@supcom.tn",
+  "first_name": "Khalil",
+  "last_name": "Mejdi",
+  "email": "khalil.mejdi97@gmail.com",
   "password": "123456",
   "phone": "21345678"
 }

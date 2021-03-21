@@ -28,13 +28,10 @@ const insertOne = async (project) => {
 };
 
 const updateOne = async (id, project) => {
-
   let item = await projects.findOne({_id: id})
-
   if(!item) {
     throw createError(401, 'Project does not exist!');
   }
-
   item = await projects.findOneAndUpdate({ _id: id }, { $set: project });
   return item;
 };

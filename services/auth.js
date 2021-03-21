@@ -1,11 +1,13 @@
 const createError = require("http-errors");
 const bcrypt = require("bcrypt");
 
+
 const monk = require("monk");
 const db = monk(process.env.DB_URL);
 const users = db.get("users");
 
-const { generateJWT } = require('../utils/jwt_auth')
+const { generateJWT } = require('../utils/jwt_auth');
+const { sendWelcomeMail } = require("./mailer");
 
 const login = async (email, password) => {
   if (!email || !password) {
@@ -51,6 +53,8 @@ const register = async (newuser) => {
   
   const saved = await users.insert(toSave)
   const jwt = generateJWT(saved)
+
+  await sendWelcomeMail(toSave);
 
   return jwt
 };
